@@ -161,7 +161,7 @@ if(${BACKEND} STREQUAL RS2_USE_V4L2_BACKEND)
     endif()
 endif()
 
-install(TARGETS pybackend2 pyrealsense2
+install(TARGETS pybackend2
     EXPORT pyrealsense2Targets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${PYTHON_INSTALL_DIR}
@@ -178,6 +178,14 @@ configure_package_config_file(../../CMake/pyrealsense2Config.cmake.in pyrealsens
     INSTALL_DESTINATION ${CMAKECONFIG_PY_INSTALL_DIR}
     INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX}/bin
     PATH_VARS CMAKE_INSTALL_INCLUDEDIR
+)
+
+
+install(TARGETS pyrealsense2
+    EXPORT pyrealsense2Targets
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${PYTHON_INSTALL_DIR}
+    ARCHIVE DESTINATION ${PYTHON_INSTALL_DIR}
 )
 
 install(EXPORT pyrealsense2Targets
